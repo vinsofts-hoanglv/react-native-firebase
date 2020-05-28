@@ -114,6 +114,7 @@ class RNFirebaseNotificationManager {
 
   void cancelNotification(String notificationId, Promise promise) {
     try {
+      notificationManager.cancel(notificationId.hashCode());
       cancelAlarm(notificationId);
       preferences
         .edit()
