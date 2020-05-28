@@ -92,7 +92,10 @@ public class DisplayNotificationTask extends AsyncTask<Void, Void, Void> {
       }
 
       if (notification.containsKey("data")) {
-        nb = nb.setExtras(notification.getBundle("data"));
+        Bundle bundle = notification.getBundle("data");
+        nb = nb.setExtras(bundle);
+
+        notificationId = bundle.getString("notifyId", notificationId);
       }
 
       if (notification.containsKey("sound")) {
